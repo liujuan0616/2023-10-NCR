@@ -46,6 +46,6 @@ const resArray = ["It is certain",
 
 
 
-app.listen(3002, () => {
-    console.log('listening on port 3002')
+app.listen(3000, () => {
+    console.log('listening on port 3000')
   })

@@ -14,7 +14,7 @@ if(bottles>0){
 res.send(`<h2>${bottles} Bottles of beer on the wall</h2>
 <a href="/${bottles-1}">take one down,pass it around.</a>`)
 }
-else if (bottles == 0){
+else{
     res.send(`<h2>${bottles} Bottles of beer on the wall</h2>
     <a href="/">start over</a>`)
 }
