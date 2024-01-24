@@ -11,6 +11,15 @@ app.get('/greeting/:name', (req, res) => {
     res.send('Wow, great to see you ' + req.params.name + '!')
 })
 
-app.listen(3000, () => {
-    console.log('listening on port 3000')
+app.get('/tip/:total/:tipPercentage', (req, res) => {
+    const tip = Math.floor(req.params.total * req.params.tipPercentage / 100);
+    res.send(`<h2>It will be nice to pay $ ${tip} for tips.<h2>`)
+
+})
+
+
+
+
+app.listen(3001, () => {
+    console.log('listening on port 3001')
   })
