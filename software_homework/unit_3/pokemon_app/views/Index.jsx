@@ -11,13 +11,16 @@ class MyFirstComponent extends React.Component {
         return(
         <>
         <h1>See All The Pokemon!</h1>
+
         <div style={myStyle}>
+
          <ul>
             {pokemon.map((element,i)=>{
                 
                 return (
-                    <li key={i}>{element.name[0].toUpperCase()}
-                        {element.name}
+
+                    <li key={i}><a href={`/pokemon/${i}`}>{element.name[0].toUpperCase()}
+                        {element.name}</a>
                     </li>
                 )
             })}
