@@ -12,7 +12,7 @@ app.get('/', (req, res)=>{
 })
 
 app.get('/pokemon', function(req, res){
-    res.render('Index')
+    res.render('Index', {pokemon: pokemon})
 })
 
 
