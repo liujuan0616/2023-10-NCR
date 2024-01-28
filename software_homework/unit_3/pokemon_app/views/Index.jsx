@@ -20,7 +20,7 @@ class MyFirstComponent extends React.Component {
                 return (
 
                     <li key={i}><a href={`/pokemon/${i}`}>{element.name[0].toUpperCase()}
-                        {element.name}</a>
+                        {element.name.slice(1,-1)}</a>
                     </li>
                 )
             })}
