@@ -13,7 +13,7 @@ class Show extends React.Component {
         <>
         <h1>Gotta Catch 'Em ALL</h1>
         <h2>{element.name[0].toUpperCase()}
-                        {element.name.slice(1,-1)}</h2>
+                        {element.name.slice(1)}</h2>
         <img src={element.img+'.jpg'}></img>
         <a href='/pokemon'>Back</a>
 
