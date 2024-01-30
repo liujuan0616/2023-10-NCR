@@ -8,13 +8,13 @@ const myStyle = {
 class Show extends React.Component {
     
     render(){
-        const element = this.props.element
+        const singlePokemon = this.props.singlePokemon
         return(
         <>
         <h1>Gotta Catch 'Em ALL</h1>
-        <h2>{element.name[0].toUpperCase()}
-                        {element.name.slice(1)}</h2>
-        <img src={element.img+'.jpg'}></img>
+        <h2>{singlePokemon.name[0].toUpperCase()}
+                        {singlePokemon.name.slice(1)}</h2>
+        <img src={singlePokemon.img+'.jpg'}></img>
         <a href='/pokemon'>Back</a>
 
 
