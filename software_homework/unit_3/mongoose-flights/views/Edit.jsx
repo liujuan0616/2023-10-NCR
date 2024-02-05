@@ -1,3 +1,4 @@
+const { SchemaTypeOptions } = require('mongoose');
 const React = require('react');
 
 //
@@ -8,6 +9,7 @@ class Edit extends React.Component {
     
         <form action={`/flights/${this.props.flight._id}?_method=PUT`} method="POST">
           Destination Airport:  <select name="airport0" >
+
           <option value="AUS">AUS</option>
           <option value="DAL">DAL</option>
           <option value="LAX">LAX</option>

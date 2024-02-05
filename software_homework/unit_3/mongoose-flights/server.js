@@ -63,6 +63,8 @@ app.get('/flights/new', (req, res) => {
         }))
       .catch(err => console.error(err));
   })
+  
+
 
 //Update
 
