@@ -18,6 +18,9 @@ class New extends React.Component {
 
     return (
       <div style={{ textAlign: 'center', margin: '20px' }}>
+        <nav>
+        <a href="/flights" style={{ textDecoration: 'none', color: 'navy', fontSize: '24px', marginRight: '20px' }}>All Flights</a>
+        </nav>
         <h1 style={{ color: 'navy' }}>Add Flight</h1>
         <form action="/flights" method="POST" style={{ maxWidth: '300px', margin: '0 auto' }}>
           Airline: <input type="text" name="airline" style={{ width: '100%', padding: '5px', marginBottom: '10px' }}/><br/><br />

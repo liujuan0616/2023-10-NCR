@@ -22,9 +22,13 @@ app.use((req, res, next) => {
 
 app.get('/flights', (req, res) => {
 
-    Flight.find({}).sort({arrival:1}).exec()
+  const newFlight = new Flight();
+	// Obtain the default date
+	const dtime = newFlight.departs;
+
+    Flight.find({}).sort({departs:1}).exec()
       .then((allFlights) => {
-        res.render('Index', { flights: allFlights });
+        res.render('Index', { flights: allFlights,dtime });
       })
       .catch((err) => console.error(err));
   });

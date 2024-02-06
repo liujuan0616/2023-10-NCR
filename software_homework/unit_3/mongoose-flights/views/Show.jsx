@@ -6,6 +6,11 @@ class Show extends React.Component {
    
     return (
     <div>
+      <nav>
+        <a href="/flights" style={{ textDecoration: 'none', color: 'navy', fontSize: '24px', marginRight: '20px' }}>All Flights</a>
+        
+          <a href="/flights/new" style={{ textDecoration: 'none', color: '#4CAF50', fontSize: '18px', marginRight: '20px' }}>ADD FLIGHT</a>
+        </nav>
       <h1> Airline Details </h1>
          {flight.airline} {flight.flightNo} depart time: {flight.departs.toLocaleString().slice(0, 23)}{' '}depart airport: {flight.airport}
         <br/> 
@@ -16,7 +21,7 @@ class Show extends React.Component {
       <p>Arrival time: {flight.destinations[0].arrival.toLocaleString().slice(0, 23)}</p>
     </div>
   ) : (<a href={`/flights/${flight._id}/edit`}>Add Destination Details</a>)}
-  <div><a href="/flights">Back to the main</a></div>
+  
 
     </div>
     );
