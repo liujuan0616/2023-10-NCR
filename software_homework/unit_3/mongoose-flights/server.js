@@ -89,6 +89,17 @@ app.post('/flights', (req, res) => {
       .catch((err) => console.error(err));
       
   });
+  // Delete
+
+app.delete('/flights/:id', (req, res) => {
+  Flight.deleteOne({ _id: req.params.id })
+    .then(deleteInfo => {
+      console.log(deleteInfo)
+      res.redirect('/flights')
+    })
+    .catch(err => console.error(err));
+})
+
 
   app.listen(3000)
 

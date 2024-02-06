@@ -10,10 +10,13 @@ const app = express();
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
-mongoose.connect(process.env.MONGO_URI);
-mongoose.connection.once('open', () => {
-  console.log('connected to mongo!');
-});
+const mongoURI = process.env.MONGO_URI;
+const db = mongoose.connection;
+mongoose.connect(mongoURI);
+
+db.on('error', err => console.log(err.message + ' is mongod not running?'));
+db.on('open', () => console.log('mongo connected!'));
+db.on('close', () => console.log('mongo disconnected!'));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
@@ -39,6 +42,7 @@ app.get('/logs', (req, res) => {
   app.get('/logs/new', (req, res) => {
     const newLog = new Log ()
     const defaultShipIsBroken = newLog.shipIsBroken
+   
     res.render('New',{defaultShipIsBroken});
   })
 
@@ -98,10 +102,12 @@ app.get('/logs/:id/edit', (req, res) => {
 // Show
 
 app.get('/logs/:id', (req, res) => {
+    const currentTimestamp = new Date().getTime();
+    const myDate = new Date(currentTimestamp);
     Log.findOne({ _id: req.params.id })
       .then((foundLog) => {
         res.render('Show', {
-          log: foundLog
+          log: foundLog, myDate
         });
       })
       .catch(err => console.error(err))

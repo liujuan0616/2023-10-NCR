@@ -11,16 +11,25 @@ class Index extends React.Component {
         </nav>
         <ul style={{ listStyleType: 'none', padding: '0' }}>
           {flights.map((flight, i) => {
-            
+
             return (
               <li key={i} style={{ borderBottom: '1px solid #ddd', padding: '10px 0', textAlign: 'left' }}>
-                
+
                 <span style={{ fontWeight: 'bold' }}>{flight.airline}</span> {" "}
-                
-                {flight.flightNo} {' '}
-               
-                {flight.departs.toISOString().slice(0, 10)}{' '}{flight.departs.toISOString().slice(11, 16)} <br/>
-                <a href={`/flights/${flight._id}`}>details</a>
+
+                {flight.flightNo} {' '}Depart time: {" "}
+
+                {flight.departs.toLocaleString().slice(0, 23)}{" "}
+                <a href={`/flights/${flight._id}`}>Details</a><br/>
+                <form
+                  action={`/flights/${flight._id}?_method=DELETE`}
+                  method="POST"
+                >
+                  <input
+                    type="submit"
+                    value="DELETE"
+                  />
+                </form>
               </li>
             );
           })}

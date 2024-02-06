@@ -9,6 +9,7 @@ class Show extends React.Component {
         Title: {log.title} <br/>
         Entry: {log.entry} <br/>
         {log.shipIsBroken? 'The ship is broken!' : 'The ship is not broken!'}<br/>
+        created: {this.props.myDate.getMonth()}{'-'}{this.props.myDate.getDate()}{'-'}{this.props.myDate.getFullYear()}<br/>
         <a href="/logs">Back to the main page</a>
     </div>
     );

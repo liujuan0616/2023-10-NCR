@@ -26,7 +26,12 @@ const flightSchema = new Schema(
           },
           departs:{
             type: Date,
-            default: "2023-01-30T19:30",
+            default: () => {
+              // Logic to set the default departure date to one year from the current date
+              const oneYearFromNow = new Date();
+              oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
+             
+              return oneYearFromNow;},
             required: true,
           },
           airport:{

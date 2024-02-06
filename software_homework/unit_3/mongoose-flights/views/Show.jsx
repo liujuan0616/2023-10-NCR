@@ -7,13 +7,13 @@ class Show extends React.Component {
     return (
     <div>
       <h1> Airline Details </h1>
-         {flight.airline} {flight.flightNo} depart time: {flight.departs.toISOString().slice(0, 10)}{' '}{flight.departs.toISOString().slice(11,16)} depart airport: {flight.airport}
+         {flight.airline} {flight.flightNo} depart time: {flight.departs.toLocaleString().slice(0, 23)}{' '}depart airport: {flight.airport}
         <br/> 
         {flight.destinations.length > 0 ? (
     <div>
       <h2>Destination Details:</h2>
       <p>Destination Airport: {flight.destinations[0].airport0}</p>
-      <p>Arrival time: {flight.destinations[0].arrival.toISOString().slice(0, 10)}{' '} {flight.destinations[0].arrival.toISOString().slice(11, 16)}</p>
+      <p>Arrival time: {flight.destinations[0].arrival.toLocaleString().slice(0, 23)}</p>
     </div>
   ) : (<a href={`/flights/${flight._id}/edit`}>Add Destination Details</a>)}
   <div><a href="/flights">Back to the main</a></div>
