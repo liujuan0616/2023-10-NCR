@@ -22,6 +22,7 @@ class Index extends React.Component {
                   : 'The ship is not broken!'
                 }
                 <br/>
+                comments:{log.comments.length}
 
                 <form
                   action={`/logs/${log._id}?_method=DELETE`}
@@ -33,7 +34,8 @@ class Index extends React.Component {
                   />
                 </form>
 
-                <a href={`/logs/${log._id}/edit`}>Edit This Log</a>
+                <a href={`/logs/${log._id}/edit`}>Edit This Log</a><br/>
+                <a href={`/logs/${log._id}`}>Add a comment</a>
               </li>
             );
           })}
