@@ -51,7 +51,18 @@ router.put('/:id', (req, res) => {
     } else {
       req.body.shipIsBroken = false;
     }
-    Log.updateOne({ _id: req.params.id }, req.body)
+    Log.updateOne({ _id: req.params.id })
+      .then(updateInfo => {
+        console.log(updateInfo);
+        res.redirect(`/logs/${req.params.id}`)
+      })
+      .catch(err => console.error(err));
+  })
+
+  router.put('/:id', (req, res) => {
+  
+   
+    Log.updateOne({ _id: req.params.id })
       .then(updateInfo => {
         console.log(updateInfo);
         res.redirect(`/logs/${req.params.id}`)
@@ -74,13 +85,10 @@ router.post('/', (req, res) => {
       .catch((err) => console.error(err));
   });
 
-  // router.post('/:id',(req,res)=>{
-  //   Log.create(req.body.comments)
-  //     .then((createdComment)=>{
-  //       res.redirect('/logs/:id')
-  // })
-    
-  // })
+  
+  
+
+  
 
   // Edit
 
@@ -92,6 +100,16 @@ router.get('/:id/edit', (req, res) => {
         }))
       .catch(err => console.error(err));
   })
+
+  router.get('/:id', (req, res) => {
+    Log.findOne({ _id: req.params.id },{ $push: { comments: req.body }})
+      .then(foundLog => res.render('CommentEdit',
+        {
+          log: foundLog
+        }))
+      .catch(err => console.error(err));
+  })
+
 
 // Show
 

@@ -35,7 +35,7 @@ class Index extends React.Component {
                 </form>
 
                 <a href={`/logs/${log._id}/edit`}>Edit This Log</a><br/>
-                <a href={`/logs/${log._id}`}>Add a comment</a>
+                <a href={`/logs/${log._id}/comments`}>Add a comment</a>
               </li>
             );
           })}

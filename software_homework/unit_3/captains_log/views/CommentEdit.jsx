@@ -1,10 +1,10 @@
 const React = require('react');
 
-class Show extends React.Component {
+class CommentEdit extends React.Component {
   render() {
    
     const {log }= this.props
-   
+   console.log(log.comments)
     return (
       
     <div>
@@ -28,12 +28,16 @@ class Show extends React.Component {
 ) : (
   <p>No comments yet</p>
 )}
+<form action={`/logs/${log._id}?_method=PUT`} method="POST">
+                          Title:<input type="text"  name="heading" /><br/>
+                          Comment:<textarea name="text" rows="4" ></textarea>
+                            <button type="submit">Post Comment</button>
+                        </form>
 
-<a href={`/logs/${log._id}/comments`}>Add a comment</a><br/>
         <a href="/logs">Back to the main page</a>
     </div>
     );
   }
 }
 
-module.exports = Show;
+module.exports = CommentEdit;
